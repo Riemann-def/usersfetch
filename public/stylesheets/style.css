@@ -1,8 +1,62 @@
 body {
+  background-color: #f9f9f9;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.titulo{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+table{
+  max-width: 900px;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.164) 0px 8px 7px -3px;
+}
+
+form{
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  margin-top: 40px;
+  gap: 12px;
+}
+
+.name-input, .apellido-input, .boton{
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.correo-input{
+  flex-grow: 2;
+  flex-basis: 0;
+}
+
+.boton{
+  padding: 2px 4px;
+  background-color: #0062ff;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+input{
+  padding: 2px 4px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.editar{
+  color: #777;
+  background-color: transparent;
+  border: none;
+}
+.eliminar{
+  margin-left: 4px;
+  color: #e95e5e;
+  background-color: transparent;
+  border: none;
 }

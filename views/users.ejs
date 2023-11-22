@@ -3,9 +3,11 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/styles/css/bootstrap.min.css' />
-    <script src="/javascripts/load.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
+    <h1 class="titulo">USERS - MONGODB</h1>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -17,15 +19,37 @@
         </tr>
       </thead>
       <tbody id="userTableBody">
+        <% users.forEach(function(user, index) { %>
+          <tr>
+            <td><%= user._id%></td>
+            <td><%= user.izena %></td>
+            <td><%= user.abizena %></td>
+            <td><%= user.email %></td>
+            <td> 
+              <form action="/users/edit/<%= user._id %>" method="GET" style="display: inline;">
+                <button type="submit" class="editar">
+                    <i class="fas fa-edit"></i>
+                </button>
+              </form>
+            
+              <form action="/users/delete/" method="POST" style="display: inline;">
+                <input type="hidden" name="_id" value="<%= user._id %>">
+                <button type="submit" class="eliminar">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </form>
 
-      </tbody>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>      
     </table>
     <form action="/users/new" method="post" id="formularioa">
-      <input type="text" name="izena" placeholder="Izena" />
-      <input type="text" name="abizena" placeholder="Abizena" />
-      <input type="text" name="email" placeholder="Email" />
+      <input class="name-input" type="text" name="izena" placeholder="Izena" />
+      <input class="apellido-input" type="text" name="abizena" placeholder="Abizena" />
+      <input class="correo-input" type="text" name="email" placeholder="Email" />
       <input type="hidden" name="id" />
-      <input type="submit" value="Gehitu" />
+      <input class="boton" type="submit" value="Gehitu" />
     </form>
   </body>
 </html>
