@@ -42,8 +42,6 @@ router.post('/delete/', function(req, res) {
   res.redirect('/users');
 })
 
-
-
 router.get('/edit/:id', function(req, res) {
   db.users.findOne({_id: mongojs.ObjectID(req.params.id)}, function (err, doc) {
       if (err) {
