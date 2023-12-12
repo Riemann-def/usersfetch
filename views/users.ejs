@@ -12,6 +12,7 @@
       <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">Profile</th>
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Email</th>
@@ -22,6 +23,9 @@
         <% users.forEach(function(user, index) { %>
           <tr>
             <td><%= user._id%></td>
+            <td>
+              <img class="perfil" src="uploads/<%= user.profile %>" onerror="this.onerror=null; this.src='user_default/user_default.png'">
+            </td>
             <td><%= user.izena %></td>
             <td><%= user.abizena %></td>
             <td><%= user.email %></td>
@@ -44,10 +48,11 @@
         <% }) %>
       </tbody>      
     </table>
-    <form action="/users/new" method="post" id="formularioa">
-      <input class="name-input" type="text" name="izena" placeholder="Izena" />
-      <input class="apellido-input" type="text" name="abizena" placeholder="Abizena" />
-      <input class="correo-input" type="text" name="email" placeholder="Email" />
+    <form action="/users/new" method="post" id="formularioa" enctype="multipart/form-data">
+      <input type="file" name="avatar" style="width: 450px;" />
+      <input class="name-input" type="text" name="izena" placeholder="Izena" required/>
+      <input class="apellido-input" type="text" name="abizena" placeholder="Abizena" required/>
+      <input class="correo-input" type="text" name="email" placeholder="Email" required/>
       <input type="hidden" name="id" />
       <input class="boton" type="submit" value="Gehitu" />
     </form>
